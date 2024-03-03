@@ -6,7 +6,7 @@
 /*   By: mben-has <mben-has@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 22:13:02 by mben-has          #+#    #+#             */
-/*   Updated: 2024/03/02 23:54:02 by mben-has         ###   ########.fr       */
+/*   Updated: 2024/03/03 02:26:29 by mben-has         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@ class Weapon
         std::string _type;
         
     public:
-        Weapon(std::string type);
+        Weapon(std::string type); // Constructor
         std::string const &getType(void);
         void setType(std::string type);
-        ~Weapon(void);
+        ~Weapon(void); // Destructor
+        Weapon(Weapon const & cpy); // Copy Contructor
+        Weapon& operator=(Weapon const & cpy); // Copy Assignment 
+        
 };
 
 # endif
