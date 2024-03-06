@@ -5,30 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-has <mben-has@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 05:29:22 by mben-has          #+#    #+#             */
-/*   Updated: 2024/03/06 01:29:46 by mben-has         ###   ########.fr       */
+/*   Created: 2024/03/03 04:42:02 by mben-has          #+#    #+#             */
+/*   Updated: 2024/03/06 02:20:19 by mben-has         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Weapon.hpp"
-# include "HumanA.hpp"
-# include "HumanB.hpp"
-int main()
+#include "Harl.hpp"
+
+int main( void )
 {
-    {
-    Weapon club = Weapon("crude spiked club");
-    HumanA bob("Bob", club);
-    bob.attack();
-    club.setType("some other type of club");
-    bob.attack();
-    }
-    {
-    Weapon club = Weapon("crude spiked club");
-    HumanB jim("Jim");
-    jim.setWeapon(club);
-    jim.attack();
-    club.setType("some other type of club");
-    jim.attack();
-    }
-return 0;
+    Harl test;
+    test.complain("DEBUG");    
+    test.complain("INFO");    
+    test.complain("WARNING");    
+    test.complain("ERROR");    
+    test.complain("SOMETHING_ELSE");    
+    
+    return 0;
 }

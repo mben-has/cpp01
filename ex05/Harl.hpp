@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-has <mben-has@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 22:28:21 by mben-has          #+#    #+#             */
-/*   Updated: 2024/03/06 01:28:03 by mben-has         ###   ########.fr       */
+/*   Created: 2024/03/03 04:42:17 by mben-has          #+#    #+#             */
+/*   Updated: 2024/03/06 02:29:02 by mben-has         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "HumanA.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-HumanA::HumanA(std::string name, Weapon &weapon) :_weapon(weapon)
+#include <iostream>
+class Harl
 {
-    _name = name;
-    // _weapon = &weapon;
-}
+    private:
+        void debug(void);
+        void info(void);
+        void warning(void);
+        void error(void);
+        void do_nothig(void);
+             
+    public:
+        Harl();
+		~Harl();
+        void complain( std::string level );
+};
 
-void HumanA::attack(void)
-{
-    std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
-}
-
-HumanA::~HumanA()
-{
-}
+# endif

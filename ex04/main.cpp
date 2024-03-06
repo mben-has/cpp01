@@ -6,7 +6,7 @@
 /*   By: mben-has <mben-has@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 05:29:22 by mben-has          #+#    #+#             */
-/*   Updated: 2024/03/03 03:52:58 by mben-has         ###   ########.fr       */
+/*   Updated: 2024/03/03 04:23:53 by mben-has         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main(int argc, char **argv)
 		std::cerr << "Error: Arguments not correct" << std::endl;
 		return (1);
 	}
+    
     std::string input_file = argv[1];
     std::string output_file = input_file + ".replace";
     std::string s1 = argv[2];
@@ -38,18 +39,24 @@ int main(int argc, char **argv)
         std::cerr << "Error: Unable to create output file " << output_file << std::endl;
         return (1);
     }
+    
     std::string line;
     while (true) 
     {
-        if (!std::getline(input, line))
-            break;
+        std::getline(input, line);
         size_t pos = 0;
         while ((pos = line.find(s1, pos)) != std::string::npos)
         {
             line = line.substr(0, pos) + s2 + line.substr(pos + s1.length());
             pos += s2.length();
         }
-        output << line << '\n';
+        if (!input.eof())
+            output << line << std::endl;
+        else
+        {
+            output << line;
+            break;
+        }
     }
     return (0);
 }
