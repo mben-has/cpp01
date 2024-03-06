@@ -6,7 +6,7 @@
 /*   By: mben-has <mben-has@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 03:12:49 by mben-has          #+#    #+#             */
-/*   Updated: 2024/03/06 04:00:34 by mben-has         ###   ########.fr       */
+/*   Updated: 2024/03/06 04:57:27 by mben-has         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void Harl::warning(void)
 
 void Harl::error(void)
 {
-    std::cout <<  "This is unacceptable!" << std::endl;
-    std::cout <<  "I want to speak to the manager now." << std::endl;
+    std::cout << "This is unacceptable!" << std::endl;
+    std::cout << "I want to speak to the manager now." << std::endl;
 }
 
 void Harl::do_nothig(void)
@@ -57,37 +57,32 @@ void Harl::complain_ver2(std::string level)
     int i = 0;
     while (i < 4 && level != input_level[i])
         i++;
-    switch(i)
+    switch (i)
     {
-        case(0):
-            std::cout << "[ " + input_level[0] + " ]"<< std::endl;
-            (this->*pointers_to_functions[0])();
-        case(1):
-            std::cout << "[ " + input_level[1] + " ]"<< std::endl;
-            (this->*pointers_to_functions[1])();
-        case(2):
-            std::cout << "[ " + input_level[2] + " ]"<< std::endl;
-            (this->*pointers_to_functions[2])();
-        case(3):
-            std::cout << "[ " + input_level[3] + " ]"<< std::endl;
-            (this->*pointers_to_functions[3])();
+        case (0):
+            check_levels_above(i, input_level, pointers_to_functions);
             break;
-        case(4):
+        case (1):
+            check_levels_above(i, input_level, pointers_to_functions);
+            break;
+        case (2):
+            check_levels_above(i, input_level, pointers_to_functions);
+            break;
+        case (3):
+            check_levels_above(i, input_level, pointers_to_functions);
+            break;
+        case (4):
             (this->*pointers_to_functions[4])();
+            break;
     }
 }
 
-// void Harl::complain_ver2(std::string level)
-// {
-//     void (Harl::*pointers_to_functions[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error, &Harl::do_nothig};
-//     std::string input_level[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-//     int i = 0;
-//     while (i < 4 && level != input_level[i])
-//         i++;
-//     while (i < 4)
-//     {
-//         std::cout << "[ " + input_level[i] + " ]"<< std::endl;
-//         (this->*pointers_to_functions[i])();
-//         i++;
-//     }
-// }
+void Harl::check_levels_above(int i, std::string input_level[], void (Harl::*pointers_to_functions[])())
+{
+    while (i < 4)
+    {
+        std::cout << "[ " + input_level[i] + " ]" << std::endl;
+        (this->*pointers_to_functions[i])();
+        i++;
+    }
+}

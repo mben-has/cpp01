@@ -6,7 +6,7 @@
 /*   By: mben-has <mben-has@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 05:29:22 by mben-has          #+#    #+#             */
-/*   Updated: 2024/03/03 04:23:53 by mben-has         ###   ########.fr       */
+/*   Updated: 2024/03/06 04:21:16 by mben-has         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int main(int argc, char **argv)
     std::string s1 = argv[2];
     std::string s2 = argv[3];
 
-    std::ifstream input(input_file);
+    std::ifstream input(input_file.c_str());
     if (!input) 
     {
         std::cerr << "Error: Unable to open input file " << input_file << std::endl;
         return (1);
     }
 
-    std::ofstream output(output_file);
+    std::ofstream output(output_file.c_str());
     if (!output) 
     {
         std::cerr << "Error: Unable to create output file " << output_file << std::endl;

@@ -6,7 +6,7 @@
 /*   By: mben-has <mben-has@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 04:46:22 by mben-has          #+#    #+#             */
-/*   Updated: 2024/03/02 08:55:01 by mben-has         ###   ########.fr       */
+/*   Updated: 2024/03/06 04:13:08 by mben-has         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ZOMBIE_HPP
 
 #include <iostream>
+#include <sstream> 
 class Zombie
 {
     private:
